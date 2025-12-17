@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Set A - All Tasks</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+        h1 { text-align: center; color: #333; }
+        .task { margin: 30px 0; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px; }
+        button:hover { background: #0056b3; }
+        input, textarea, select { padding: 8px; margin: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        #timer { font-size: 2.5em; font-weight: bold; text-align: center; margin: 20px 0; }
+        pre, span { background: #f0f0f0; padding: 10px; display: inline-block; border-radius: 5px; }
+        .result { font-weight: bold; color: #007bff; }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Set A - All 20 Tasks</h1>
+
+    <div class="task">
+        <h2>1. Reverse a string</h2>
+        <input type="text" id="t1" value="hello" placeholder="Enter string">
+        <button onclick="task1()">Reverse</button>
+        <span id="r1" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>2. Extract 3rd and 4th characters</h2>
+        <input type="text" id="t2" value="javascript" placeholder="Enter string">
+        <button onclick="task2()">Extract</button>
+        <span id="r2" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>3. Find the longest word</h2>
+        <input type="text" id="t3" value="The quick brown fox jumped" style="width:500px;">
+        <button onclick="task3()">Find</button>
+        <span id="r3" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>4. Toggle case (UPPER ↔ lower)</h2>
+        <input type="text" id="t4" value="HeLLo WoRLd">
+        <button onclick="task4()">Toggle</button>
+        <span id="r4" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>5. Find substring index</h2>
+        String: <input type="text" id="t5a" value="hello world"><br><br>
+        Substring: <input type="text" id="t5b" value="world">
+        <button onclick="task5()">Find</button>
+        <span id="r5" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>6. Count words, chars, spaces, special symbols</h2>
+        <textarea id="t6" rows="4" style="width:500px;">Hello, world! How are you?</textarea><br>
+        <button onclick="task6()">Count</button>
+        <pre id="r6"></pre>
+    </div>
+
+    <div class="task">
+        <h2>7. Third element of fruits array</h2>
+        <button onclick="task7()">Show</button>
+        <span id="r7" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>8. Last element from array (input)</h2>
+        <button onclick="task8()">Enter array</button>
+        <span id="r8" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>9. 10th character from string (input)</h2>
+        <button onclick="task9()">Enter string</button>
+        <span id="r9" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>10. Display array values in loop</h2>
+        <button onclick="task10()">Display</button>
+        <pre id="r10"></pre>
+    </div>
+
+    <div class="task">
+        <h2>11. Calculator (+ − × ÷)</h2>
+        <input type="number" id="t11a" value="10">
+        <select id="t11op">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input type="number" id="t11b" value="5">
+        <button onclick="task11()">Calculate</button>
+        <span id="r11" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>12. Add two numbers</h2>
+        <button onclick="task12()">Add</button>
+        <span id="r12" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>13. Subtract two numbers</h2>
+        <button onclick="task13()">Subtract</button>
+        <span id="r13" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>14. Accept only 10-digit mobile number</h2>
+        <button onclick="task14()">Enter number</button>
+        <span id="r14" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>15. Detect numeric/string for two inputs</h2>
+        <button onclick="task15()">Enter two values</button>
+        <pre id="r15"></pre>
+    </div>
+
+    <div class="task">
+        <h2>16. Check if input contains only numbers</h2>
+        <button onclick="task16()">Check input</button>
+        <span id="r16" class="result"></span>
+    </div>
+
+    <div class="task">
+        <h2>17-18. Create and display person object</h2>
+        <button onclick="task17()">Create person</button>
+        <div id="r17" style="margin-top:15px; padding:10px; background:#f0f0f0; border-radius:5px;"></div>
+    </div>
+
+    <div class="task">
+        <h2>19. Stopwatch</h2>
+        <button onclick="task19start()">Start</button>
+        <button onclick="task19pause()">Pause</button>
+        <button onclick="task19reset()">Reset</button>
+        <div id="timer">00:00:00</div>
+    </div>
+
+    <div class="task">
+        <h2>20. Change background color</h2>
+        <button onclick="task20()">Change Color</button>
+    </div>
+
+    <script>
+        function task1() {
+            const s = document.getElementById('t1').value || '';
+            document.getElementById('r1').textContent = s.split('').reverse().join('');
+        }
+
+        function task2() {
+            const s = document.getElementById('t2').value || '';
+            document.getElementById('r2').textContent = s.length >= 4 ? s.slice(2, 4) : 'String too short';
+        }
+
+        function task3() {
+            const s = document.getElementById('t3').value.trim();
+            if (!s) { document.getElementById('r3').textContent = 'Empty string'; return; }
+            const words = s.split(/\s+/).filter(w => w.length > 0);
+            const longest = words.reduce((a, b) => a.length > b.length ? a : b, '');
+            document.getElementById('r3').textContent = longest;
+        }
+
+        function task4() {
+            const s = document.getElementById('t4').value || '';
+            const r = s.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('');
+            document.getElementById('r4').textContent = r;
+        }
+
+        function task5() {
+            const str = document.getElementById('t5a').value || '';
+            const sub = document.getElementById('t5b').value || '';
+            document.getElementById('r5').textContent = str.indexOf(sub);
+        }
+
+        function task6() {
+            const s = document.getElementById('t6').value;
+            const words = s.trim().split(/\s+/).filter(w => w.length > 0).length;
+            const chars = s.length;
+            const spaces = (s.match(/ /g) || []).length;
+            const special = (s.match(/[^a-zA-Z0-9\s]/g) || []).length;
+            document.getElementById('r6').textContent = `Words: ${words}\nCharacters: ${chars}\nSpaces: ${spaces}\nSpecial symbols: ${special}`;
+        }
+
+        function task7() {
+            const fruits = ["Apple", "Banana", "Orange", "Mango", "Grape"];
+            document.getElementById('r7').textContent = "Third element: " + fruits[2];
+        }
+
+        function task8() {
+            const input = prompt("Enter elements separated by commas:");
+            if (input === null || input.trim() === '') { document.getElementById('r8').textContent = "Input cancelled"; return; }
+            const arr = input.split(',').map(x => x.trim()).filter(x => x);
+            if (arr.length === 0) { document.getElementById('r8').textContent = "Empty array"; return; }
+            document.getElementById('r8').textContent = "Last element: " + arr[arr.length - 1];
+        }
+
+        function task9() {
+            const input = prompt("Enter a string (at least 10 characters):");
+            if (input === null) { document.getElementById('r9').textContent = "Input cancelled"; return; }
+            document.getElementById('r9').textContent = input.length >= 10 ? "10th character: " + input[9] : "String too short";
+        }
+
+        function task10() {
+            const values = ["JS", "HTML", "CSS", "React", "Node"];
+            let out = "";
+            for (let i = 0; i < values.length; i++) {
+                out += `Index ${i}: ${values[i]}\n`;
+            }
+            document.getElementById('r10').textContent = out;
+        }
+
+        function task11() {
+            const a = Number(document.getElementById('t11a').value);
+            const b = Number(document.getElementById('t11b').value);
+            const op = document.getElementById('t11op').value;
+            let res;
+            if (isNaN(a) || isNaN(b)) { res = "Enter valid numbers"; }
+            else if (op === '+') res = a + b;
+            else if (op === '-') res = a - b;
+            else if (op === '*') res = a * b;
+            else if (op === '/') res = b !== 0 ? a / b : "Cannot divide by zero";
+            document.getElementById('r11').textContent = res;
+        }
+
+        function task12() {
+            const a = Number(prompt("First number:"));
+            const b = Number(prompt("Second number:"));
+            if (isNaN(a) || isNaN(b)) { document.getElementById('r12').textContent = "Invalid input"; }
+            else document.getElementById('r12').textContent = "Sum: " + (a + b);
+        }
+
+        function task13() {
+            const a = Number(prompt("First number:"));
+            const b = Number(prompt("Second number:"));
+            if (isNaN(a) || isNaN(b)) { document.getElementById('r13').textContent = "Invalid input"; }
+            else document.getElementById('r13').textContent = "Difference: " + (a - b);
+        }
+
+        function task14() {
+            let num;
+            do {
+                num = prompt("Enter exactly 10 digits (mobile number):");
+                if (num === null) { document.getElementById('r14').textContent = "Input cancelled"; return; }
+            } while (!/^\d{10}$/.test(num));
+            document.getElementById('r14').textContent = "Valid number: " + num;
+        }
+
+        function task15() {
+            const v1 = prompt("First value:");
+            const v2 = prompt("Second value:");
+            if (v1 === null || v2 === null) { document.getElementById('r15').textContent = "Input cancelled"; return; }
+            document.getElementById('r15').textContent = `First: ${isNaN(v1) ? 'String' : 'Number'}\nSecond: ${isNaN(v2) ? 'String' : 'Number'}`;
+        }
+
+        function task16() {
+            const input = prompt("Enter text:");
+            if (input === null) { document.getElementById('r16').textContent = "Input cancelled"; return; }
+            const ok = /^\d+$/.test(input);
+            document.getElementById('r16').textContent = ok ? "Only numbers" : "Contains non-numbers";
+        }
+
+        function task17() {
+            const name = prompt("Name:", "Alice") || "Alice";
+            const ageInput = prompt("Age:", "25");
+            const age = isNaN(ageInput) ? 0 : Number(ageInput);
+            const gender = prompt("Gender:", "Female") || "Female";
+            document.getElementById('r17').innerHTML = `<strong>Name:</strong> ${name}<br><strong>Age:</strong> ${age}<br><strong>Gender:</strong> ${gender}`;
+        }
+
+        let timerInterval = null;
+        let seconds = 0;
+
+        function updateTimer() {
+            const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+            const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+            const s = String(seconds % 60).padStart(2, '0');
+            document.getElementById('timer').textContent = `${h}:${m}:${s}`;
+        }
+
+        function task19start() {
+            if (!timerInterval) {
+                timerInterval = setInterval(() => { seconds++; updateTimer(); }, 1000);
+            }
+        }
+
+        function task19pause() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function task19reset() {
+            task19pause();
+            seconds = 0;
+            updateTimer();
+        }
+
+        updateTimer();
+
+        function task20() {
+            const colors = ["#ffebee","#e8f5e9","#e3f2fd","#fff8e1","#f3e5f5","#e0f7fa"];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+
+</body>
+</html>
